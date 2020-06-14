@@ -83,6 +83,8 @@ export const actions = {
     } else {
       commit('setDarkMode', false)
     }
+
+    dispatch('setLoading', true)
   },
   async getStatic ({ dispatch, commit, state }) {
     const ref = this.$fireStore.collection('static').doc('data')

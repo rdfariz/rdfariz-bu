@@ -3,7 +3,7 @@
     <v-container v-show="staticData.header != undefined && staticData.header.visible === true"  grid-list-xs class="my-12">
       <v-layout column justify-center align-center>
         <v-slide-y-reverse-transition>
-          <v-flex v-show="loadedCover" xs12 class="mt-8 transitionCustom">
+          <v-flex v-show="loadedCover && !isLoading" xs12 class="mt-8 transitionCustom">
             <lottie v-if="staticData.header != undefined && staticData.header.animation === true" height="225px" :options="lottieHeader" />
             <h1
               v-if="staticData.header != undefined && staticData.header.title != undefined"
@@ -261,6 +261,9 @@ export default {
     showDetailExperience: false
   }),
   computed: {
+    isLoading () {
+      return this.$store.getters.isLoading
+    },
     staticData () {
       return this.$store.getters.static
     },

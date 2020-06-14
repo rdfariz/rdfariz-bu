@@ -24,14 +24,20 @@
     <v-content>
       <nuxt />
     </v-content>
-    <v-overlay :value="isLoading">
-      <v-progress-circular indeterminate size="64" />
+    <v-overlay opacity="1" :color="$vuetify.theme.dark ? 'black' : 'white'" :value="isLoading">
+      <lottie height="225px" :options="lottieLoading" />
     </v-overlay>
   </v-app>
 </template>
 
 <script>
+import lottie from '@/components/elements/lottie/index'
+import animationData from '@/static/lottie/9844-loading-40-paperplane.json'
+
 export default {
+  components: {
+    lottie
+  },
   props: {
     attrs: {
       type: Object,
@@ -42,6 +48,7 @@ export default {
     initialDark: vm.$vuetify
       ? vm.$vuetify.theme.dark
       : false,
+    lottieLoading: { animationData }
   }),
   computed: {
     isLoading () {
@@ -57,6 +64,11 @@ export default {
   },
   created () {
     this.$vuetify.theme.dark = this.darkMode
+  },
+  mounted () {
+    setTimeout(() => {
+      this.$store.dispatch('setLoading', false)
+    }, 1500)
   },
   methods: {
     toggleTheme () {
