@@ -6,7 +6,7 @@ export const state = () => ({
   static: {},
   myWork: [],
   myExperience: [],
-  isLoading: false,
+  isLoading: true,
   isError: false,
   myWorkCategory: [],
   myExperienceCategory: [],
