@@ -24,7 +24,7 @@
     <v-content>
       <nuxt />
     </v-content>
-    <v-overlay opacity="1" :color="$vuetify.theme.dark ? 'black' : 'white'" :value="isLoading">
+    <v-overlay opacity="1" :color="$vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-5'" :value="isLoading">
       <lottie height="225px" :options="lottieLoading" />
     </v-overlay>
   </v-app>
