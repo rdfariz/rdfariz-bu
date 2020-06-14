@@ -3,7 +3,8 @@
     <v-container v-show="staticData.header != undefined && staticData.header.visible === true"  grid-list-xs class="my-12">
       <v-layout column justify-center align-center>
         <v-slide-y-reverse-transition>
-          <v-flex v-show="loadedCover" xs12 class="mt-12 transitionCustom">
+          <v-flex v-show="loadedCover" xs12 class="mt-8 transitionCustom">
+            <lottie v-if="staticData.header != undefined && staticData.header.animation === true" height="225px" :options="lottieHeader" />
             <h1
               v-if="staticData.header != undefined && staticData.header.title != undefined"
               class="display-1 text-center"
@@ -81,7 +82,15 @@
         <v-flex xs12 style="width: 100%">
           <v-card flat class="d-flex py-6" color="transparent">
             <v-layout row wrap align-start justify-center>
-              <v-flex xs12 md6>
+              <v-flex xs12 md6 class="d-flex justify-center justify-md-start align-center flex-wrap flex-column flex-sm-row text-center">
+                <v-avatar
+                  v-if="staticData.categoryAnimation != undefined && staticData.categoryAnimation === true"
+                  class="my-2 my-sm-0 mr-sm-2 mr-md-4"
+                  size="55"
+                  color="grey lighten-3"
+                >
+                  <lottie height="90px" width="90px" :options="lottieBio" />
+                </v-avatar>
                 <h1 class="display-1 text-center text-md-left">
                   bio`graphy
                 </h1>
@@ -106,7 +115,15 @@
     <div id="portfolio" />
     <v-container grid-list-xs class="my-12">
       <v-layout row wrap class="py-6">
-        <v-flex xs12>
+        <v-flex xs12 class="d-flex justify-center justify-md-start align-center flex-wrap flex-column flex-sm-row text-center">
+          <v-avatar
+            v-if="staticData.categoryAnimation != undefined && staticData.categoryAnimation === true"
+            class="my-2 my-sm-0 mr-sm-2 mr-md-4"
+            size="55"
+            color="grey lighten-3"
+          >
+            <lottie height="100px" width="100px" :options="lottieWork" />
+          </v-avatar>
           <h1 class="display-1 text-center text-md-left">
             `my work
           </h1>
@@ -130,7 +147,15 @@
     <div id="experience" />
     <v-container grid-list-xs class="my-12">
       <v-layout row wrap class="py-6">
-        <v-flex xs12>
+        <v-flex xs12 class="d-flex justify-center justify-md-start align-center flex-wrap flex-column flex-sm-row text-center">
+          <v-avatar
+            v-if="staticData.categoryAnimation != undefined && staticData.categoryAnimation === true"
+            class="my-2 my-sm-0 mr-sm-2 mr-md-4"
+            size="55"
+            color="grey lighten-3"
+          >
+            <lottie height="90px" width="90px" :options="lottieExperience" />
+          </v-avatar>
           <h1 class="display-1 text-center text-md-left">
             `my experience
           </h1>
@@ -173,6 +198,7 @@
                 v-if="staticData.footer !== undefined"
                 class="text-center"
               >
+                <lottie v-if="staticData.footer != undefined && staticData.footer.animation === true" height="200px" :options="lottieOptions" />
                 <template v-if="staticData.footer.info != undefined">
                   <span v-html="staticData.footer.info" />
                 </template>
@@ -206,12 +232,28 @@
 import cardMyWork from '@/components/elements/cardMyWork/index'
 import cardMyExperience from '@/components/elements/cardMyExperience/index'
 import bannerImage from '@/components/elements/bannerImage/index'
+import lottie from '@/components/elements/lottie/index'
+import animationData from '@/static/lottie/9844-loading-40-paperplane.json'
+import animationHeader from '@/static/lottie/18123-developer.json'
+import animationBio from '@/static/lottie/5313-loading-7-book.json'
+import animationWork from '@/static/lottie/5399-loading-17-coffee-cup.json'
+import animationExperience from '@/static/lottie/5315-archived-folder-document.json'
 
 export default {
   components: {
     cardMyWork,
     cardMyExperience,
-    bannerImage
+    bannerImage,
+    lottie
+  },
+  asyncData ({ isDev, route, store, env, params, query, req, res, redirect, error }) {
+    return {
+      lottieOptions: { animationData },
+      lottieHeader: { animationData: animationHeader },
+      lottieBio: { animationData: animationBio },
+      lottieWork: { animationData: animationWork },
+      lottieExperience: { animationData: animationExperience }
+    }
   },
   data: () => ({
     loadedCover: false,

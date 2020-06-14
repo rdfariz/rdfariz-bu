@@ -3,6 +3,7 @@
     <v-layout column justify-center align-center>
       <v-slide-y-reverse-transition>
         <v-flex xs12 class="mt-12 transitionCustom">
+          <lottie height="300px" :options="lottieOptions" />
           <h1 v-if="error.statusCode === 404" class="display-1 text-center">
             {{ pageNotFound }}
           </h1>
@@ -25,7 +26,13 @@
 </template>
 
 <script>
+import lottie from '@/components/elements/lottie/index'
+import error from '@/static/lottie/11233-505-error.json'
+
 export default {
+  components: {
+    lottie
+  },
   layout: 'empty',
   props: {
     error: {
@@ -35,7 +42,8 @@ export default {
   },
   data: () => ({
     pageNotFound: '404 Not Found',
-    otherError: 'An error occurred'
+    otherError: 'An error occurred',
+    lottieOptions: { animationData: error }
   }),
   head () {
     const title =

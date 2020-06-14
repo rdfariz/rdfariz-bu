@@ -2,8 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "*.js",
-      "use": "@now/node-server"
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {}
     }
   ]
 }

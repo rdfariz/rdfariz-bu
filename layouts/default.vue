@@ -5,7 +5,7 @@
       fixed
       app
       hide-on-scroll
-      height="86px"
+      height="75px"
       flat
     >
       <v-container grid-list-xs>
@@ -14,6 +14,9 @@
             <v-toolbar-title>`rdfariz</v-toolbar-title>
           </nuxt-link>
           <v-spacer />
+          <v-btn icon to="/diary">
+            <v-icon>mdi-book-play-outline</v-icon>
+          </v-btn>
           <v-btn icon @click="toggleTheme"><v-icon>mdi-brightness-6</v-icon></v-btn>
         </v-layout>
       </v-container>
