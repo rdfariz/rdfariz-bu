@@ -32,7 +32,7 @@
 
 <script>
 import lottie from '@/components/elements/lottie/index'
-import animationData from '@/static/lottie/9844-loading-40-paperplane.json'
+import animationData from '@/static/lottie/8802-loading-animation.json'
 
 export default {
   components: {

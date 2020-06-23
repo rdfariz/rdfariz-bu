@@ -1,4 +1,5 @@
 const colors = require('vuetify/es5/util/colors').default
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -21,7 +22,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#f9ca24' },
   /*
   ** Global CSS
   */
@@ -58,14 +59,14 @@ module.exports = {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: 'AIzaSyDyfOiP4muV38cWTPoq3ztHM6eLctsSIRI',
-          authDomain: 'rdfariz-data.firebaseapp.com',
-          databaseURL: 'https://rdfariz-data.firebaseio.com',
-          projectId: 'rdfariz-data',
-          storageBucket: 'rdfariz-data.appspot.com',
-          messagingSenderId: '418992693682',
-          appId: '1:418992693682:web:89692e4085ca9198ad04ab',
-          measurementId: 'G-VGGY9XM72G'
+          apiKey: process.env.apiKey,
+          authDomain: process.env.authDomain,
+          databaseURL: process.env.databaseURL,
+          projectId: process.env.projectId,
+          storageBucket: process.env.storageBucket,
+          messagingSenderId: process.env.messagingSenderId,
+          appId: process.env.appId,
+          measurementId: process.env.messagingSenderId
         },
         services: {
           analytics: true,

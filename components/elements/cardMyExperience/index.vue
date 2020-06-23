@@ -1,18 +1,16 @@
 <template>
-  <v-hover
-    v-slot:default="{ hover }"
-  >
+  <v-hover>
     <v-card outlined>
       <v-card flat @click="showDetailExperience = !showDetailExperience">
-        <v-card-title v-if="item.name !== '' && item.name !== undefined" :class="$vuetify.breakpoint.smAndDown ? 'subtitle-1 font-weight-medium' : 'title'" class="px-6">
-          {{item.name}}
+        <v-card-title v-if="item.name !== '' && item.name !== undefined" class="px-6">
+          {{ item.name }}
           <v-spacer />
           <v-icon>{{ showDetailExperience ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-card-title>
 
-        <v-card-subtitle class="text--primary px-6 subtitle-1">
+        <v-card-subtitle class="text--primary px-6">
           <div v-if="item.description !== '' && item.description !== undefined">
-            {{item.description}}
+            {{ item.description }}
           </div>
           <div v-else>
             -

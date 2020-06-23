@@ -117,7 +117,7 @@ export const actions = {
     const ref = this.$fireStore.collection('portfolio').orderBy('order', 'asc')
     try {
       const data = await ref.get()
-      const promise = data.docs.map(async el => {
+      const promise = data.docs.map(async (el) => {
         return await el.data()
       })
       const payload = await Promise.all(promise)
@@ -131,7 +131,7 @@ export const actions = {
     const ref = this.$fireStore.collection('experience').orderBy('order', 'asc')
     try {
       const data = await ref.get()
-      const promise = data.docs.map(async el => {
+      const promise = data.docs.map(async (el) => {
         return await el.data()
       })
       const payload = await Promise.all(promise)

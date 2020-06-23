@@ -38,7 +38,7 @@
 
 <script>
 import lottie from '@/components/elements/lottie/index'
-import animationData from '@/static/lottie/23664-sword-battle.json'
+import animationData from '@/static/lottie/24636-dancing-pallbearers.json'
 
 export default {
   components: {
