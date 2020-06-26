@@ -11,7 +11,7 @@
           <lottie v-if="lottie" height="100px" width="100px" :options="lottie" />
         </v-avatar>
         <h1 class="display-1 text-center text-md-left">
-          `my work
+          {{ title }}
         </h1>
       </v-flex>
       <v-flex xs12 class="mt-6">
@@ -37,6 +37,11 @@ export default {
     lottie
   },
   props: {
+    title: {
+      type: String,
+      default: '',
+      required: false
+    },
     category: {
       type: Array,
       default: () => ([]),

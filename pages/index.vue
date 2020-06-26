@@ -5,10 +5,10 @@
     <bioContent :data="staticData" :lottie="lottieBio" />
     <bannerImage v-if="staticData.coverImages[1] != '' && staticData.coverImages[1] != undefined" :cover-image="staticData.coverImages[1]" />
     <v-divider v-else />
-    <listContent :data="staticData" :category="myWorkCategory" :items="myWork" :lottie="lottieWork" />
+    <listContent title="`my works" :data="staticData" :category="myWorkCategory" :items="myWork" :lottie="lottieWork" />
     <bannerImage v-if="staticData.coverImages[2] != '' && staticData.coverImages[2] != undefined" :cover-image="staticData.coverImages[2]" />
     <v-divider v-else />
-    <listContent :data="staticData" :category="myExperienceCategory" :items="myExperience" :lottie="lottieExperience" />
+    <listContent title="`my experience" :data="staticData" :category="myExperienceCategory" :items="myExperience" :lottie="lottieExperience" />
     <bannerImage v-if="staticData.coverImages[3] != '' && staticData.coverImages[3] != undefined" :cover-image="staticData.coverImages[3]" />
     <v-divider v-else />
     <footerContent :data="staticData.footer" :social-media="staticData.socialMedia" :lottie="lottieOptions" />
